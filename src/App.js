@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import { Router, Route, Routes, Navigate } from 'react-router-dom';
+import StartPage from './Pages/StartPage/StartPage';
+import Authorization from './Pages/Authorization/Authorization'; // Путь к вашему компоненту авторизации
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/start_page" />} />
+        <Route path="/start_page" exact element={<StartPage />} />
+        <Route path="/authorization" element={<Authorization />} />
+      </Routes>
+    </Router>
   );
 }
 
