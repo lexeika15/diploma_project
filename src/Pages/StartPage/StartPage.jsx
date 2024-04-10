@@ -1,5 +1,5 @@
 import React from 'react';
-import tomato from '../../additions/tomato-svgrepo-com.svg';
+import tomato from '../../assets/icons/tomato-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 import './StartPage.css';
 

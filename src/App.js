@@ -1,19 +1,34 @@
-
 import React from 'react';
-import { Router, Route, Routes, Navigate } from 'react-router-dom';
+import {
+  Navigate,
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import StartPage from './Pages/StartPage/StartPage';
-import Authorization from './Pages/Authorization/Authorization'; // Путь к вашему компоненту авторизации
+import Authorization from './Pages/Authorization/Authorization';
+import Profile from './Pages/Profile/Profile';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navigate to="/start_page" />,
+  },
+  {
+    path: '/start_page',
+    element: <StartPage />,
+  },
+  {
+    path: '/authorization',
+    element: <Authorization />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+  },
+]);
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/start_page" />} />
-        <Route path="/start_page" exact element={<StartPage />} />
-        <Route path="/authorization" element={<Authorization />} />
-      </Routes>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
